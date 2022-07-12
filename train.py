@@ -48,12 +48,14 @@ def main(config):
     logger = TensorBoardLogger(save_dir=config.log_path, version=1, name=config.task)
 
     checkpoint_callback = ModelCheckpoint(
-        filepath="checkpoints/{epoch}_{val_loss:3f}",
+        # filepath="checkpoints/{epoch}_{val_loss:3f}",
+        dirpath="checkpoints",
+        filename="{epoch}_{val_loss:3f}",
         verbose=True,
         monitor="val_loss",
         mode="min",
         save_top_k=3,
-        prefix="",
+        # prefix="",
     )
 
     early_stop_callback = EarlyStopping(
@@ -66,9 +68,10 @@ def main(config):
 
     trainer = pl.Trainer(
         gpus=config.gpus,
-        distributed_backend=config.distributed_backend,
+        # distributed_backend=config.distributed_backend,
+        strategy=config.strategy,
         checkpoint_callback=checkpoint_callback,
-        early_stop_callback=early_stop_callback,
+        # early_stop_callback=early_stop_callback,
         logger=logger,
     )
 

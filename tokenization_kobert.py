@@ -112,6 +112,8 @@ class KoBertTokenizer(PreTrainedTokenizer):
         self.sp_model = spm.SentencePieceProcessor()
         self.sp_model.Load(vocab_file)
 
+        self.SPIECE_UNDERLINE = SPIECE_UNDERLINE
+
     @property
     def vocab_size(self):
         return len(self.idx2token)

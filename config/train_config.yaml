@@ -7,5 +7,6 @@ max_len: 128
 train_batch_size: 128
 eval_batch_size: 128
 dropout_rate: 0.1
-gpus: 8
-distributed_backend: ddp
+gpus: 1
+# distributed_backend: ddp
+strategy: dp
