@@ -24,7 +24,6 @@ def get_dataloader(
         dataloader
     """
     dataset = CorpusDataset(data_path, transform)
-    print(dataset[0])
     dataloader = DataLoader(dataset, batch_size=batch_size)
     return dataloader
 

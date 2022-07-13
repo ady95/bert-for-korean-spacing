@@ -18,7 +18,11 @@ class CorpusDataset(Dataset):
         Args:
             sentences: 문장 List
         """
-        self.sentences = sentences
+
+        # 1. 띄어쓰기 제거
+        for sentence in sentences:
+            sentence = sentence.replace(" ", "")
+            self.sentences.append(sentence)
 
     def _get_tags(self, sentence: List[str]) -> List[str]:
         """문장에 대해 띄어쓰기 tagging을 한다.

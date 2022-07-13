@@ -16,7 +16,8 @@ from net import SpacingBertModel
 
 class KoSpacingHelper:
 
-    def __init__(self, config):
+    def __init__(self):
+        config = OmegaConf.load("config/eval_config.yaml")
         self.preprocessor = Preprocessor(config.max_len)
 
         self.model = SpacingBertModel(config, None, None, None)
@@ -48,7 +49,7 @@ class KoSpacingHelper:
                 # print(input_token)
                 # input_string = helper.preprocessor.tokenizer.convert_tokens_to_string(input_tokens)
                 input_string = self.get_text(input_token)
-                # print(input_string)
+                print(input_string)
 
                 result_sentence = self.spacing_sentence(input_string, pred_slot_labels[i])
                 result_list.append(result_sentence)
@@ -82,7 +83,7 @@ class KoSpacingHelper:
             slot = slot_labels[i]
             if slot == 'S':
                 char_list.insert(i +1, ' ')
-            elif slot == 'E' and i < len(char_list):
+            elif slot == 'E' and i < len(char_list) -1:
                 char_list.insert(i +1, ' ')
         
         return "".join(char_list)
@@ -91,37 +92,18 @@ class KoSpacingHelper:
     if __name__ == "__main__":
         import common_util
         from kospacing_helper import KoSpacingHelper
-        config = OmegaConf.load("config/eval_config.yaml")
         
-        sentence_list = common_util.read_lines(config.test_data_path)
-        
-        helper = KoSpacingHelper(config)
+        helper = KoSpacingHelper()
+        # sentence_list = common_util.read_lines("data/sample.txt")
+        sentence_list = "그것도 그렇지만 한달간 유럽 다니면서 3번 추락했던 에어2s와 다르게 반년 가까이 동남아를 여행하고 있다."
+        # sentence_list = "그것도그렇지만한달간유럽다니면서3번추락했던에어2s와다르게반년가까이동남아를여행하고있지만단한번도추락을한적도없는안정성도비교가되지않을것같기도합니다.일례로커다란비행기가작은비행기보다더안전하다는말도있죠.특별한설명이없어도이해하시리라생각합니다.연결거리도상당히차이가나는것같구요."
+        # sentence_list = sentence_list.replace(" ", "")
+        # print(len(sentence_list))
+        # print(sentence_list[:128])
+        sentence_list = [sentence_list]
         ret = helper.predict(sentence_list)
         print(ret)
 
-        exit()
-        for batch in helper.dataloader:
-            # input_ids, slot_labels, attention_mask, token_type_ids = item
-            input_ids, attention_mask, token_type_ids, slot_labels = batch
- 
-            outputs = helper.model.forward(input_ids, attention_mask, token_type_ids)
-            gt_slot_labels, pred_slot_labels = helper.model._convert_ids_to_labels(
-                outputs, slot_labels
-            )
-            # print(gt_slot_labels)
-            
-            # print(input_ids)
-            # print(input_labels)
-            for i in range(len(input_ids)):
-                # print(pred_slot_labels)
-                input_token = helper.preprocessor.tokenizer.convert_ids_to_tokens(input_ids[i])
-                # print(input_token)
-                # input_string = helper.preprocessor.tokenizer.convert_tokens_to_string(input_tokens)
-                input_string = helper.get_text(input_token)
-                print(input_string)
-
-                result_sentence = helper.spacing_sentence(input_string, pred_slot_labels[i])
-                print(result_sentence)
 
 
         
