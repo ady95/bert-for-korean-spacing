@@ -1,6 +1,35 @@
 bert_model: monologg/kobert
-test_data_path: data/sample.txt
-ckpt_path: logs/ko_spacing/version_1/checkpoints/epoch=3-step=112375.ckpt
+# test_data_path: data/sample.txt
+test_data_path: data/test.txt
+# ckpt_path: logs/ko_spacing/version_1/checkpoints/epoch=3-step=112375.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=0-step=78651.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=1-step=157303.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=2-step=235955.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=3-step=314607.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=4-step=393259.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=5-step=471911.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=6-step=550563.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=7-step=629215.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=8-step=707867.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=9-step=786519.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=10-step=865171.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=11-step=943823.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=12-step=1022475.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=13-step=1101127.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=14-step=1179779.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=15-step=1258431.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=16-step=1337083.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=17-step=1415735.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=18-step=1494387.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoisnts/epoch=19-step=1573039.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=20-step=1651691.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=21-step=1730343.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=22-step=1808995.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=24-step=1966299.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=27-step=2202255.ckpt
+ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=29-step=2359559.ckpt
+# ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=30-step=2438211.ckpt
 max_len: 128
 eval_batch_size: 128
 dropout_rate: 0.1
+gpus: 1

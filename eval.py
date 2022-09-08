@@ -25,7 +25,7 @@ def main(config):
     checkpoint = torch.load(config.ckpt_path, map_location=lambda storage, loc: storage)
     model.load_state_dict(checkpoint["state_dict"])
 
-    trainer = pl.Trainer()
+    trainer = pl.Trainer(gpus=config.gpus)
     res = trainer.test(model)
 
 

@@ -109,12 +109,14 @@ class SpacingBertModel(pl.LightningModule):
         )
 
         test_acc = self._f1_score(gt_slot_labels, pred_slot_labels)
+        print("test_acc:", test_acc)
 
         test_step_outputs = {
             "test_acc": test_acc,
             "gt_labels": gt_slot_labels,
             "pred_labels": pred_slot_labels,
         }
+        # print("test_step_outputs:", test_step_outputs)
 
         return test_step_outputs
 
@@ -127,6 +129,7 @@ class SpacingBertModel(pl.LightningModule):
             gt_labels.extend(x["gt_labels"])
             pred_labels.extend(x["pred_labels"])
 
+        print("[end]test_acc:", test_acc)
         test_step_outputs = {
             "test_acc": test_acc,
             "gt_labels": gt_labels,
