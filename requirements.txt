@@ -1,7 +1,7 @@
-torch==1.5.1
-seqeval==0.0.12
-pytorch-lightning==0.8.5
-omegaconf==2.0.1
-sklearn==0.0
-transformers==3.0.2
-Korpora==0.1.1
+seqeval==1.2.2
+pytorch-lightning==1.5.10
+omegaconf==2.1.1
+scikit-learn==1.0.2
+transformers==4.16.2
+Korpora==0.2.0
+sentencepiece==0.1.96

@@ -1,0 +1,6 @@
+conda create -n kobert python=3.8
+
+# CUDA 버전에 맞는 pytorch 재설치 (CUDA 11.1 -> torch 1.9.1)
+pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchtext==0.10.1 -f https://download.pytorch.org/whl/cu111/torch_stable.html
+
+pip install -r requirements.txt
