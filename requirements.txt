@@ -1,7 +1,9 @@
-seqeval
 pytorch-lightning==1.5.10
 omegaconf==2.1.1
-scikit-learn==1.0.2
 transformers==4.16.2
 Korpora==0.2.0
 sentencepiece==0.1.96
+seqeval==1.2.2
+scikit-learn
+fastapi
+uvicorn[standard]

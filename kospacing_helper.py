@@ -132,14 +132,14 @@ class KoSpacingHelper:
         from kospacing_helper import KoSpacingHelper
         # gt_text = "아버지가 방에 들어가신다"
         # pred_text = "아버지가방에 들어 가신다"
-        # ret = KoSpacingHelper.diff_score(gt_text, pred_text)
-        # helper = KoSpacingHelper()
-        # ret = helper.predict([
-        #             "2차세계대전의상처에서헤어나지못했던사람들은인간존재와생의근원을탐구하는그의작품에열광했고,발표하는작품마다독자들의열렬한찬사를받았다.", 
-        #             "소아암 환아도 우리 이웃…영화 레터스 투 갓을 현실로"])
-        # print(ret)
+        ret = KoSpacingHelper.diff_score(gt_text, pred_text)
+        helper = KoSpacingHelper()
+        ret = helper.predict([
+                    "2차세계대전의상처에서헤어나지못했던사람들은인간존재와생의근원을탐구하는그의작품에열광했고,발표하는작품마다독자들의열렬한찬사를받았다.", 
+                    "소아암 환아도 우리 이웃, 영화 레터스 투 갓을 현실로"])
+        print(ret)
 
-        # exit()
+        exit()
 
         
         from tqdm import tqdm

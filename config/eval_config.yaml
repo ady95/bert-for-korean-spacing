@@ -2,7 +2,7 @@ bert_model: monologg/kobert
 # test_data_path: data/sample.txt
 test_data_path: data/test.txt
 # ckpt_path: logs/ko_spacing/20220715/checkpoints/epoch=27-step=2202255.ckpt
-ckpt_path: model/20220715/checkpoints/epoch=29-step=2359559.ckpt
+ckpt_path: model/epoch=29-step=2359559.ckpt
 max_len: 128
 eval_batch_size: 128
 dropout_rate: 0.1
