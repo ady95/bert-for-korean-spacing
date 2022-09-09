@@ -1,5 +1,6 @@
 # FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
-FROM nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04
+# FROM nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04
+FROM ubuntu:18.04
 
 ENV TZ Asia/Seoul
 ENV LC_ALL C.UTF-8
@@ -37,7 +38,8 @@ WORKDIR  /bert-for-korean-spacing
 
 # Install application dependencies from the requirements file
 RUN pip3 install -U pip && pip3 install setuptools
-RUN pip3 install torch==1.8.1+cu101 -f https://download.pytorch.org/whl/cu101/torch_stable.html
+# RUN pip3 install torch==1.8.1+cu101 -f https://download.pytorch.org/whl/cu101/torch_stable.html
+RUN pip3 install torch==1.10.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
 RUN pip3 install -r requirements.txt
 # seqeval은 위의 requirements.txt가 설치된 된후에 설치가 가능 (requirements.txt에 포함해서 설치하면 오류 발생)
 RUN pip3 install seqeval==1.2.2

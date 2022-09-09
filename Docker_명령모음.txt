@@ -1,0 +1,35 @@
+# 도커 빌드
+sudo docker build -f Dockerfile -t korean_spacing:1.0.0 .
+
+# 도커 빌드 (no cache)
+sudo docker build --no-cache -f Dockerfile -t korean_spacing:1.0.0 .
+
+# 도커 빌드 (CPU)
+sudo docker build -f Dockerfile_cpu -t korean_spacing_cpu:1.0.0 .
+
+
+
+# 도커 실행(bash)
+sudo docker run --name korean_spacing --gpus all --rm -it -p 8080:8080 -v $(pwd)/model:/bert-for-korean-spacing/model korean_spacing:1.0.0
+
+# 도커 실행(bash) - CPU
+sudo docker run --name korean_spacing_cpu --rm -it -p 8080:8080 -v $(pwd)/model:/bert-for-korean-spacing/model korean_spacing_cpu:1.0.0
+
+# 도커 실행(daemon)
+sudo docker run --name news_classification --gpus all -p 8080:8080 -d news_classification:1.0.0
+
+# 도커 save
+sudo docker save beyondalpr:1.0.0 > beyondalpr_1.0.0.tar
+
+
+# 모듈 설치
+apt update
+apt install python3-pip
+pip3 install pillow
+
+git clone -b docker https://gitlab.com/next-lab/beyondalpr-lp.git
+
+
+
+# nvcr.io/nvidia/l4t-ml 이미지로 바로 실행 (GIT 폴더 공유)
+sudo docker run --gpus all --rm -it -v $(pwd):/usr/src/app/beyondcctv -w /usr/src/app/beyondcctv -e TZ=$(cat /etc/timezone) nvcr.io/nvidia/l4t-ml:r32.6.1-py3
